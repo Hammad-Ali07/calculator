@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attractive Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Enhanced vibrant colors */
+        .bg-gradient-custom {
+            background: linear-gradient(135deg, #ff8c00, #ff2e63, #08aeea, #2af598);
+            background-size: 300% 300%;
+            animation: gradientBackground 6s ease infinite;
+        }
+
+        /* Background animation */
+        @keyframes gradientBackground {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Button animation */
+        .button, .operator {
+            transition: transform 0.2s ease-in-out, background-color 0.3s ease;
+        }
+        .button:hover, .operator:hover {
+            transform: scale(1.1);
+            background-color: #fbb034; /* Transition to bright color */
+        }
+
+        /* Header fade-in animation */
+        .header-animation {
+            animation: fadeInDown 1s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center justify-center h-screen bg-gradient-custom font-sans">
+    <div class="text-center mb-8 header-animation">
+        <h1 class="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white underline uppercase mb-2">Online Calculator</h1>
+        <h2 class="text-sm sm:text-lg md:text-xl text-white">By: Hammad Ali</h2>
+    </div>
+
+    <form name="form1" class="calci bg-white p-6 sm:p-8 rounded-3xl shadow-lg max-w-xs sm:max-w-md w-full mx-auto" action="calculator.html" method="POST">
+        <input type="text" name="answer" id="display" class="w-full h-14 sm:h-16 text-lg font-light border-2 border-blue-200 rounded-2xl text-center mb-5" readonly>
+
+        <div class="grid grid-cols-4 gap-2">
+            <input type="button" value="C" onclick="form1.answer.value=''" class="button bg-pink-100 hover:bg-pink-200 rounded-full text-lg sm:text-xl">
+            <input type="button" value="&lt;" onclick="form1.answer.value=form1.answer.value.slice(0,-1)" class="button bg-yellow-100 hover:bg-yellow-200 rounded-full text-lg sm:text-xl">
+            <input type="button" value="00" onclick="form1.answer.value+='00'" class="button bg-blue-100 hover:bg-blue-200 rounded-full text-lg sm:text-xl">
+            <input type="button" value="/" onclick="form1.answer.value+='/'" class="operator bg-purple-300 hover:bg-purple-400 rounded-full text-lg sm:text-xl text-black font-semibold">
+
+            <input type="button" value="7" onclick="form1.answer.value+='7'" class="button bg-pink-100 hover:bg-pink-200 rounded-full text-lg sm:text-xl">
+            <input type="button" value="8" onclick="form1.answer.value+='8'" class="button bg-yellow-100 hover:bg-yellow-200 rounded-full text-lg sm:text-xl">
+            <input type="button" value="9" onclick="form1.answer.value+='9'" class="button bg-blue-100 hover:bg-blue-200 rounded-full text-lg sm:text-xl">
+            <input type="button" value="*" onclick="form1.answer.value+='*'" class="operator bg-purple-300 hover:bg-purple-400 rounded-full text-lg sm:text-xl text-black font-semibold">
+
+            <input type="button" value="4" onclick="form1.answer.value+='4'" class="button bg-pink-100 hover:bg-pink-200 rounded-full text-lg sm:text-xl">
+            <input type="button" value="5" onclick="form1.answer.value+='5'" class="button bg-yellow-100 hover:bg-yellow-200 rounded-full text-lg sm:text-xl">
+            <input type="button" value="6" onclick="form1.answer.value+='6'" class="button bg-blue-100 hover:bg-blue-200 rounded-full text-lg sm:text-xl">
+            <input type="button" value="-" onclick="form1.answer.value+='-'" class="operator bg-purple-300 hover:bg-purple-400 rounded-full text-lg sm:text-xl text-black font-semibold">
+
+            <input type="button" value="1" onclick="form1.answer.value+='1'" class="button bg-pink-100 hover:bg-pink-200 rounded-full text-lg sm:text-xl">
+            <input type="button" value="2" onclick="form1.answer.value+='2'" class="button bg-yellow-100 hover:bg-yellow-200 rounded-full text-lg sm:text-xl">
+            <input type="button" value="3" onclick="form1.answer.value+='3'" class="button bg-blue-100 hover:bg-blue-200 rounded-full text-lg sm:text-xl">
+            <input type="button" value="+" onclick="form1.answer.value+='+'" class="operator bg-purple-300 hover:bg-purple-400 rounded-full text-lg sm:text-xl text-black font-semibold">
+
+            <input type="button" value="0" onclick="form1.answer.value+='0'" class="button bg-green-100 hover:bg-green-200 rounded-full text-lg sm:text-xl col-span-2">
+            <input type="button" value="." onclick="form1.answer.value+='.'" class="button bg-red-100 hover:bg-red-200 rounded-full text-lg sm:text-xl">
+            <input type="button" value="=" onclick="form1.answer.value=eval(form1.answer.value)" class="operator bg-green-500 hover:bg-green-600 rounded-full text-lg sm:text-xl text-white font-semibold">
+        </div>
+    </form>
+
+</body>
+</html>
